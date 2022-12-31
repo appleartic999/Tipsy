@@ -13,11 +13,12 @@ The following **required** functionality is completed:
 * [x] User can enter in a bill amount (total amount to tip on)
 * [x] User can enter a tip percentage (what % the user wants to tip).
 * [x] The tip and total amount are updated immediately when any of the inputs changes.
-* [x] The user sees a label or color update based on the tip amount.
+
 
 The following **extensions** are implemented:
 
-* [ ] Custom colors palette selected
+* [x] Added the ability to split the bill across 30 people.
+* [ ] Show currency symbols, and allow users to change the currency.
 
 
 ## Video Walkthrough
