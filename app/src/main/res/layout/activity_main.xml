@@ -30,6 +30,7 @@
         android:hint="Bill Amount"
         android:inputType="numberDecimal"
         android:minHeight="48dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/tvBaseAmount"
         app:layout_constraintTop_toTopOf="parent" />
 

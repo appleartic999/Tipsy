@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         tvSplit.text = "Split by $INITIAL_SPLIT_NUMBER"
         tvTipAmount.text = "$INITIAL_TIP_AMOUNT"
         tvTotalAmount.text = "$INITIAL_TOTAL_AMOUNT"
+        tvShareAmount.text = "$INITIAL_TOTAL_AMOUNT"
 
         etBaseAmount.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-//                Log.i(TAG, "onProgressChanged $p1")
+                Log.i(TAG, "onProgressChanged $p1")
                 if (p1 <= 1) {
                     split = 1
                 }
@@ -82,6 +83,14 @@ class MainActivity : AppCompatActivity() {
         if (split < 1) split = 1
         tvSplit.text = "Split by $split"
         calculateTotalAmount(split)
+        if (etBaseAmount.text.isEmpty() || etTipPercentage.text.isEmpty()) {
+            tvShareAmount.text = ""
+            tvTotalAmount.text = "$INITIAL_TOTAL_AMOUNT"
+            tvTipAmount.text = "$INITIAL_TIP_AMOUNT"
+            tvShareAmount.text = "$INITIAL_TOTAL_AMOUNT"
+            tvShareAmount.text = "$INITIAL_TOTAL_AMOUNT"
+            return
+        }
         val shareAmountPerPerson =
             "%.2f".format(tvTotalAmount.text.toString().toDouble() / split)
         tvShareAmount.text = "$shareAmountPerPerson"
@@ -92,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             tvShareAmount.text = ""
             tvTotalAmount.text = ""
             tvTipAmount.text = ""
+            tvShareAmount.text = ""
             return
         }
         val baseAmount = etBaseAmount.text.toString().toDouble()
